@@ -9,11 +9,10 @@ for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
 done;
 unset file;
 
-# Load the default .profile
-[[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
+# Load nvm (Node Version Manager)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
-# Load the .bashrc
-[ -r $HOME/.bashrc ] && source $HOME/.bashrc
-
-# Load rvm
+# Load rvm (Ruby Version Manager)
+export PATH="$HOME/.rvm/bin:$PATH"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
