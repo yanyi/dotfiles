@@ -16,3 +16,6 @@ export NVM_DIR="$HOME/.nvm"
 # Load rvm (Ruby Version Manager)
 export PATH="$HOME/.rvm/bin:$PATH"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+# Change Working Directory to Development
+cd ~/Documents/Development
