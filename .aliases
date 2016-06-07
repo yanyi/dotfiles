@@ -13,6 +13,11 @@ alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/La
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
+# Restart OS X Finder, Dock or Menubar
+alias killFinder="killall Finder"
+alias killDock="killall Dock"
+alias killMenu="killall SystemUIServer"
+
 # Show/hide hidden files in Finder
 alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
 alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
