@@ -19,12 +19,12 @@ alias killDock="killall Dock"
 alias killMenu="killall SystemUIServer"
 
 # Show/hide hidden files in Finder
-alias showfiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-alias hidefiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias showFiles="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hideFiles="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 
 # Hide/show all desktop icons (useful when presenting)
-alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
-alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+alias hideDesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showDesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
