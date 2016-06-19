@@ -29,10 +29,10 @@ git clone https://github.com/yanyi/dotfiles.git
 source bootstrap.sh
 ```
 
-Run the following to set up the Mac OS X defaults:
+Run the following to set up the macOS defaults:
 
 ```sh
-./.osx
+./.macos
 ```
 
 Run the following to install some Homebrew formulae:
