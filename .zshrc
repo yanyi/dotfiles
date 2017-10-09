@@ -2,6 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+export TERM="xterm-256color"
 export ZSH=/Users/yanyi/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
@@ -126,7 +127,7 @@ POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "
 
 # Add new line after prompt
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+# POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 # dir
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
