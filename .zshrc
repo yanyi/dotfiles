@@ -111,8 +111,14 @@ cd ~/Documents/Development
 # Powerlevel9k Settings #
 #########################
 
-# Disable right prompt
-POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_COLOR_SCHEME='light'
+
+# Left prompt
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir vcs ssh)
+
+# Right prompt
+# POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rbenv)
 
 # Command prompt below segments/prompt
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -121,3 +127,10 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "
 
 # Add new line after prompt
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+
+# dir
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+
+# status
+POWERLEVEL9K_STATUS_OK=false
+POWERLEVEL9K_STATUS_CROSS=true
