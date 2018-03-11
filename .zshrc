@@ -108,6 +108,24 @@ export PATH="$HOME/.rvm/bin:$PATH"
 # Change Working Directory to Development
 cd ~/Documents/Development
 
+# Generate random string
+random()
+{
+  cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w ${1:-16} | head -n 1
+}
+
+# Generate random file at path (per megabyte)
+randomfile-m()
+{
+  dd if=/dev/urandom of=RANDOM-GEN.txt bs=1m count=${1:-10}
+}
+
+# Generate random file at path (per gigabyte)
+randomfile-g()
+{
+  dd if=/dev/urandom of=RANDOM-GEN.txt bs=1g count=${1:-1}
+}
+
 #########################
 # Powerlevel9k Settings #
 #########################
