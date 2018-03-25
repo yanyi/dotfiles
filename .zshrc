@@ -114,14 +114,20 @@ random()
   cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w ${1:-16} | head -n 1
 }
 
+# Generate random numbers
+random_number()
+{
+  cat /dev/urandom | env LC_CTYPE=C tr -dc '0-9' | fold -w ${1:-10} | head -n 1
+}
+
 # Generate random file at path (per megabyte)
-randomfile-m()
+random_file_m()
 {
   dd if=/dev/urandom of=RANDOM-GEN.txt bs=1m count=${1:-10}
 }
 
 # Generate random file at path (per gigabyte)
-randomfile-g()
+random_file_g()
 {
   dd if=/dev/urandom of=RANDOM-GEN.txt bs=1g count=${1:-1}
 }
