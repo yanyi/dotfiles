@@ -27,6 +27,7 @@ brew cask install anki
 brew cask install appcleaner
 brew cask install calibre
 brew cask install cryptomator
+brew cask install diffmerge
 brew cask install discord
 brew cask install dnscrypt
 brew cask install freefilesync
