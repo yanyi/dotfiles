@@ -60,5 +60,9 @@ brew install wget
 brew install youtube-dl
 brew install zsh
 
+# brew taps
+## https://github.com/buo/homebrew-cask-upgrade
+brew tap buo/cask-upgrade
+
 # Remove outdated versions from the cellar
 brew cleanup
