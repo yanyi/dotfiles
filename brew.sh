@@ -30,6 +30,7 @@ brew cask install cryptomator
 brew cask install diffmerge
 brew cask install discord
 brew cask install dnscrypt
+brew cask install docker
 brew cask install freefilesync
 brew cask install google-chrome
 brew cask install handbrake
