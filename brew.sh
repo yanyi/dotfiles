@@ -48,6 +48,7 @@ brew cask install skitch
 brew cask install time-lapse-assembler
 brew cask install transmission
 brew cask install veracrypt
+brew cask install virtualbox
 brew cask install waterfox
 
 # Install useful binaries
