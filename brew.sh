@@ -36,6 +36,7 @@ brew cask install google-chrome
 brew cask install handbrake
 brew cask install iina
 brew cask install imageoptim
+brew cask install jadengeller-helium
 brew cask install keybase
 brew cask install keepassxc
 brew cask install launchcontrol
