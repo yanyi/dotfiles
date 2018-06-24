@@ -8,6 +8,7 @@ export ZSH=/Users/yanyi/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+# POWERLEVEL9K_MODE='nerdfont-complete'
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -143,7 +144,7 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir vcs ssh)
 
 # Right prompt
 # POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rbenv)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rvm root_indicator docker_machine)
 
 # Command prompt below segments/prompt
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -154,11 +155,12 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "
 # POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 # dir
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='white'
 POWERLEVEL9K_DIR_HOME_FOREGROUND='white'
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='white'
+POWERLEVEL9K_DIR_SHOW_WRITABLE=true
 
 # status
-POWERLEVEL9K_STATUS_OK=false
+POWERLEVEL9K_STATUS_OK=true
 POWERLEVEL9K_STATUS_CROSS=true
