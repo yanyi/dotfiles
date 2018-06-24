@@ -59,6 +59,7 @@ brew install git
 brew install git-crypt
 brew install git-flow
 brew install openssl
+brew install tree
 brew install wget
 brew install youtube-dl
 brew install zsh
