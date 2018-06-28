@@ -107,7 +107,7 @@ export PATH="$HOME/.rvm/bin:$PATH"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # Change Working Directory to Development
-cd ~/Documents/Development
+# cd ~/Documents/Development
 
 # Generate random string
 random()
