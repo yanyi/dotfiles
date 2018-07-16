@@ -1,5 +1,5 @@
 # dotfiles
-These are my dotfiles. Most of them are inspired by [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)
+These are my dotfiles/config files. Most of them are inspired by [Mathias Bynens](https://github.com/mathiasbynens/dotfiles)
 
 ## Installation
 
