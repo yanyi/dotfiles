@@ -2,7 +2,6 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export TERM="xterm-256color"
 export ZSH=/Users/yanyi/.oh-my-zsh
 
 # Set name of the theme to load.
