@@ -47,6 +47,7 @@ brew cask install osxfuse
 brew cask install postman
 brew cask install signal
 brew cask install skitch
+brew cask install slack
 brew cask install time-lapse-assembler
 brew cask install transmission
 brew cask install veracrypt
