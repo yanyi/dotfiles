@@ -1,3 +1,4 @@
+export LANG=en_US.UTF-8
 export TERM="xterm-256color"
 
 # If you come from bash you might have to change your $PATH.
@@ -42,6 +43,11 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Load Go
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOPATH/bin
 
 # Generate random string
 random()
