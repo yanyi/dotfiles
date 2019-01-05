@@ -5,7 +5,7 @@ export TERM="xterm-256color"
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/yanyi/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 POWERLEVEL9K_MODE='nerdfont-complete'
@@ -46,6 +46,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # Load Go
 export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 
