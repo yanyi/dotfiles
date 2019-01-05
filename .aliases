@@ -54,3 +54,6 @@ alias reload="exec $SHELL -l"
 
 # brew cask upgrade
 alias brewcu="brew cu -a --cleanup"
+
+# Docker
+alias docker-remove='docker rm $(docker ps -qa --no-trunc)'
