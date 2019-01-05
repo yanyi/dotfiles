@@ -24,7 +24,11 @@ alias brewUpdate="brew update && brew upgrade && brew cleanup; brew doctor"
 
 # List all files in colour
 export CLICOLOR=1
-alias ls="ls -Gp"
+alias ls="ls -aGhlp"
+
+# List tree structure, sorted by directories first
+# brew install tree
+alias tree="tree --dirsfirst"
 
 # Clean up LaunchServices to remove duplicates in the “Open With” menu
 alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
@@ -47,3 +51,6 @@ alias showDesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# brew cask upgrade
+alias brewcu="brew cu -a --cleanup"
