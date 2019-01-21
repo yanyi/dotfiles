@@ -1,26 +1,15 @@
 export LANG=en_US.UTF-8
 export TERM="xterm-256color"
 
-# If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-POWERLEVEL9K_MODE='nerdfont-complete'
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="geometry/geometry"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-####################
-# Added Personally #
-####################
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -109,3 +98,6 @@ POWERLEVEL9K_DIR_SHOW_WRITABLE=true
 # status
 POWERLEVEL9K_STATUS_OK=true
 POWERLEVEL9K_STATUS_CROSS=true
+
+# Added by Krypton
+export GPG_TTY=$(tty)
