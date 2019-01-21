@@ -63,41 +63,5 @@ random_file_g()
   dd if=/dev/urandom of=RANDOM-GEN.txt bs=1g count=${1:-1}
 }
 
-#########################
-# Powerlevel9k Settings #
-#########################
-
-POWERLEVEL9K_COLOR_SCHEME='light'
-
-# Left prompt
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time dir vcs ssh)
-
-# Right prompt
-# POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status rvm root_indicator docker_machine)
-
-# Command prompt below segments/prompt
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="↳ "
-
-# Add new line after prompt
-# POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-
-# time
-POWERLEVEL9K_TIME_FOREGROUND='white'
-POWERLEVEL9K_TIME_BACKGROUND='red'
-
-# dir
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
-POWERLEVEL9K_DIR_DEFAULT_FOREGROUND='white'
-POWERLEVEL9K_DIR_HOME_FOREGROUND='white'
-POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='white'
-POWERLEVEL9K_DIR_SHOW_WRITABLE=true
-
-# status
-POWERLEVEL9K_STATUS_OK=true
-POWERLEVEL9K_STATUS_CROSS=true
-
 # Added by Krypton
 export GPG_TTY=$(tty)
