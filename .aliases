@@ -24,7 +24,7 @@ alias brewUpdate="brew update && brew upgrade && brew cleanup; brew doctor"
 
 # List all files in colour
 export CLICOLOR=1
-alias ls="ls -aGhlp"
+alias ls="ls -aGp"
 
 # List tree structure, sorted by directories first
 # brew install tree
