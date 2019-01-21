@@ -65,3 +65,16 @@ random_file_g()
 
 # Added by Krypton
 export GPG_TTY=$(tty)
+
+#####################
+# geometry Settings #
+#####################
+
+GEOMETRY_COLOR_EXIT_VALUE="magenta"
+GEOMETRY_COLOR_PROMPT="white"
+GEOMETRY_COLOR_ROOT="red"
+GEOMETRY_COLOR_DIR="blue"
+GEOMETRY_PROMPT_SUFFIX="\n $"
+GEOMETRY_SYMBOL_SPACER=" "
+GEOMETRY_DIR_SPACER=" "
+GEOMETRY_PLUGIN_SEPARATOR=" "
