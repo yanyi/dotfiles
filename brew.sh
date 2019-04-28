@@ -55,7 +55,7 @@ brew cask install virtualbox
 brew cask install waterfox
 
 # Install useful binaries
-brew install dive
+brew tap wagoodman/dive && brew install dive
 brew install git
 brew install git-crypt
 brew install git-flow
