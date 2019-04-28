@@ -61,6 +61,7 @@ brew install git-crypt
 brew install git-flow
 brew install openssl
 brew install ranger
+brew install rbenv
 brew install tree
 brew install wget
 brew install youtube-dl
