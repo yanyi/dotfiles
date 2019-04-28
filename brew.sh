@@ -62,7 +62,7 @@ brew install openssl
 brew install ranger
 brew install rbenv
 brew install tree
-brew install vim --with-override-system-vi
+brew install vim 
 brew install watch
 brew install wget
 brew install yarn
