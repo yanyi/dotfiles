@@ -1,9 +1,8 @@
 export LANG=en_US.UTF-8
 export TERM="xterm-256color"
-
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="geometry/geometry"
+ZSH_THEME="oxide"
 
 plugins=(git zsh-autosuggestions)
 
