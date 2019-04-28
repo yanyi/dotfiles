@@ -12,6 +12,7 @@ brew upgrade --all
 brew cask install alfred
 brew cask install avast-security
 brew cask install caffeine
+brew cask install docker
 brew cask install dropbox
 brew cask install firefox
 brew cask install iterm2
@@ -30,7 +31,6 @@ brew cask install cryptomator
 brew cask install diffmerge
 brew cask install discord
 brew cask install dnscrypt
-brew cask install docker
 brew cask install freefilesync
 brew cask install google-chrome
 brew cask install handbrake
@@ -39,12 +39,10 @@ brew cask install imageoptim
 brew cask install jadengeller-helium
 brew cask install keybase
 brew cask install keepassxc
-brew cask install launchcontrol
 brew cask install mountain-duck
 brew cask install mpv
 brew cask install namechanger
 brew cask install osxfuse
-brew cask install postman
 brew cask install signal
 brew cask install skitch
 brew cask install slack
@@ -59,11 +57,15 @@ brew tap wagoodman/dive && brew install dive
 brew install git
 brew install git-crypt
 brew install git-flow
+brew install htop
 brew install openssl
 brew install ranger
 brew install rbenv
 brew install tree
+brew install vim --with-override-system-vi
+brew install watch
 brew install wget
+brew install yarn
 brew install youtube-dl
 brew install zsh
 
