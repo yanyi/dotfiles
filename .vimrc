@@ -16,7 +16,7 @@ command W w !sudo tee % > /dev/null
 set cmdheight=2
 
 set encoding=utf8
-
+set number
 """"""""""""""""""""""""""""""""""""""""""""
 " Color Settings
 """"""""""""""""""""""""""""""""""""""""""""
