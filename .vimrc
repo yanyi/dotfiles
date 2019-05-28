@@ -17,6 +17,7 @@ set cmdheight=2
 
 set encoding=utf8
 set number
+
 """"""""""""""""""""""""""""""""""""""""""""
 " Color Settings
 """"""""""""""""""""""""""""""""""""""""""""
@@ -28,3 +29,16 @@ set background=dark
 """"""""""""""""""""""""""""""""""""""""""""
 set noswapfile
 autocmd Filetype gitcommit setlocal spell textwidth=72
+
+""""""""""""""""""""""""""""""""""""""""""""
+" vim-plug
+""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin('~/.vim/plugged')
+Plug 'arcticicestudio/nord-vim'
+call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""
+" Color scheme
+""""""""""""""""""""""""""""""""""""""""""""
+colorscheme nord
+
