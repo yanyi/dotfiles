@@ -7,7 +7,7 @@ plugins=(git zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 #######################
-# Aliases / Functions
+# Aliases / Functions #
 #######################
 
 # Shortcuts
@@ -28,6 +28,10 @@ alias hideFiles="defaults write com.apple.finder AppleShowAllFiles -bool false &
 # Hide/show all desktop icons (useful when presenting)
 alias hideDesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showDesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# git alias replacement
+alias gd="git d"
+alias gl="git l"
 
 # List tree structure, sorted by directories first
 # brew install tree
