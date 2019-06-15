@@ -1,25 +1,16 @@
 export LANG=en_US.UTF-8
 export TERM="xterm-256color"
 export ZSH=$HOME/.oh-my-zsh
-
 # List all files in colour
 export CLICOLOR=1
 
 ZSH_THEME="oxide"
-
 plugins=(git zsh-autosuggestions)
-
 source $ZSH/oh-my-zsh.sh
 
+#######################
 # User configuration
-
-# Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{path,exports,aliases,functions,extra}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
+#######################
 
 # Load nvm (Node Version Manager)
 export NVM_DIR="$HOME/.nvm"
@@ -43,7 +34,7 @@ export PATH=$PATH:$GOPATH/bin
 
 #######################
 # Aliases / Functions
-######################
+#######################
 
 # Shortcuts
 alias dv="cd ~/Documents/Development"
