@@ -12,8 +12,14 @@ set autoread
 " (useful for handling the permission-denied error)
 command W w !sudo tee % > /dev/null
 
+" Set the textwidth to wrap at 80-chars
+set textwidth=80
+
 " Height of the command bar
 set cmdheight=2
+
+" Set backspace
+set backspace=indent,eol,start
 
 set encoding=utf8
 set number
