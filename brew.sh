@@ -33,6 +33,7 @@ brew cask install discord
 brew cask install dnscrypt
 brew cask install freefilesync
 brew cask install google-chrome
+brew cask install google-cloud-sdk
 brew cask install handbrake
 brew cask install iina
 brew cask install imageoptim
