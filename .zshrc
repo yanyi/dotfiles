@@ -46,13 +46,13 @@ alias docker-remove='docker rm $(docker ps -qa --no-trunc)'
 # Generate random string
 random()
 {
-  cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w ${1:-16} | head -n 1
+  cat /dev/urandom | env LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w ${1:-16} | head -n 1
 }
 
 # Generate random numbers
 random_number()
 {
-  cat /dev/urandom | env LC_CTYPE=C tr -dc '0-9' | fold -w ${1:-10} | head -n 1
+  cat /dev/urandom | env LC_ALL=C tr -dc '0-9' | fold -w ${1:-10} | head -n 1
 }
 
 # Generate random file at path (per megabyte)
