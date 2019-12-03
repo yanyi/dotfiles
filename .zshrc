@@ -1,6 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 # List all files in colour
 export CLICOLOR=1
+export LC_ALL=en_US.UTF-8
 
 ZSH_THEME="oxide"
 plugins=(git zsh-autosuggestions)
