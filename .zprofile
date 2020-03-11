@@ -1,11 +1,3 @@
-export LANG=en_US.UTF-8
-export TERM="xterm-256color"
-
-# Load nvm (Node Version Manager)
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # Load rbenv
 eval "$(rbenv init -)"
 
