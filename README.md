@@ -8,7 +8,7 @@ These are my dotfiles/config files. Most of them are inspired by [Mathias Bynens
 Install [Homebrew](http://brew.sh/):
 
 ```sh
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 Install git:
@@ -47,9 +47,4 @@ Run:
 
 ```sh
 source bootstrap.sh
-```
-
-## Symlink
-```
-$ ln -s ~/Documents/Development/dotfiles ~/dotfiles
 ```
