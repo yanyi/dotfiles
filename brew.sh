@@ -11,11 +11,11 @@ brew upgrade --all
 # brew-cask daily
 brew cask install alfred
 brew cask install avast-security
-brew cask install caffeine
 brew cask install docker
 brew cask install dropbox
 brew cask install firefox
 brew cask install iterm2
+brew cask install keepingyouawake
 brew cask install sourcetree
 brew cask install spotify
 brew cask install telegram
@@ -37,8 +37,6 @@ brew cask install google-cloud-sdk
 brew cask install handbrake
 brew cask install iina
 brew cask install imageoptim
-brew cask install jadengeller-helium
-brew cask install keybase
 brew cask install keepassxc
 brew cask install mountain-duck
 brew cask install mpv
@@ -51,7 +49,6 @@ brew cask install time-lapse-assembler
 brew cask install transmission
 brew cask install veracrypt
 brew cask install virtualbox
-brew cask install waterfox
 
 # Install useful binaries
 brew tap wagoodman/dive && brew install dive
@@ -63,16 +60,15 @@ brew install openssl
 brew install ranger
 brew install rbenv
 brew install tree
-brew install vim 
+brew install vim
 brew install watch
 brew install wget
 brew install yarn
 brew install youtube-dl
-brew install zsh
 
 # brew taps
-## https://github.com/buo/homebrew-cask-upgrade
-brew tap buo/cask-upgrade
+brew tap buo/cask-upgrade # https://github.com/buo/homebrew-cask-upgrade
+brew tap homebrew/cask-fonts
 
 # Remove outdated versions from the cellar
 brew cleanup
