@@ -42,39 +42,9 @@ alias tree="tree --dirsfirst"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
-# Docker
-alias docker-remove='docker rm $(docker ps -qa --no-trunc)'
-
-# Generate random string
-random()
-{
-  cat /dev/urandom | env LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w ${1:-16} | head -n 1
-}
-
-# Generate random numbers
-random_number()
-{
-  cat /dev/urandom | env LC_ALL=C tr -dc '0-9' | fold -w ${1:-10} | head -n 1
-}
-
-# Generate random file at path (per megabyte)
-random_file_m()
-{
-  dd if=/dev/urandom of=RANDOM-GEN.txt bs=1m count=${1:-10}
-}
-
-# Generate random file at path (per gigabyte)
-random_file_g()
-{
-  dd if=/dev/urandom of=RANDOM-GEN.txt bs=1g count=${1:-1}
-}
-
 # Generate a temporary directory in /tmp
 # From `jtm` on Lobsters https://lobste.rs/s/zpw6py/how_do_you_organize_your_home_directory#c_rre2uy
 t()
 {
   cd $(mktemp -d /tmp/$1.XXXX)
 }
-
-# Added by Krypton
-export GPG_TTY=$(tty)
