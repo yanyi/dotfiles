@@ -3,6 +3,8 @@ export ZSH=$HOME/.oh-my-zsh
 export CLICOLOR=1
 export LC_ALL=en_US.UTF-8
 
+fpath=($HOME/completion $fpath)
+autoload -Uz compinit && compinit -I
 ZSH_THEME="oxide"
 plugins=(git zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
