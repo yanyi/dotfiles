@@ -242,6 +242,17 @@ defaults write org.m0k.transmission WarningLegal -bool false
 defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 
 ###############################################################################
+# Rectangle.app                                                               #
+###############################################################################
+
+# Set the gap between each window
+defaults write com.knollsoft.Rectangle gapSize -float 8
+
+# Set "Almost Maximize" to 95%
+defaults write com.knollsoft.Rectangle almostMaximizeHeight -float 0.95
+defaults write com.knollsoft.Rectangle almostMaximizeWidth -float 0.95
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
