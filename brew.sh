@@ -5,7 +5,6 @@
 
 # brew-cask daily
 brew cask install alfred
-brew cask install avast-security
 brew cask install docker
 brew cask install dozer
 brew cask install dropbox
@@ -22,11 +21,8 @@ brew cask install whatsapp
 
 # brew-cask less often
 brew cask install aerial
-brew cask install anki
 brew cask install appcleaner
-brew cask install calibre
 brew cask install cryptomator
-brew cask install diffmerge
 brew cask install discord
 brew cask install dnscrypt
 brew cask install freefilesync
@@ -37,12 +33,8 @@ brew cask install iina
 brew cask install imageoptim
 brew cask install keepassxc
 brew cask install libreoffice
-brew cask install mountain-duck
-brew cask install mpv
 brew cask install namechanger
-brew cask install osxfuse
 brew cask install signal
-brew cask install skitch
 brew cask install slack
 brew cask install time-lapse-assembler
 brew cask install transmission
