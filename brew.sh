@@ -50,6 +50,7 @@ brew install htop
 brew install openssl
 brew install ranger
 brew install rbenv
+brew install rclone
 brew install tree
 brew install vim
 brew install watch
