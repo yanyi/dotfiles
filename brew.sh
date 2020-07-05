@@ -7,6 +7,7 @@
 brew cask install alfred
 brew cask install avast-security
 brew cask install docker
+brew cask install dozer
 brew cask install dropbox
 brew cask install firefox
 brew cask install iterm2
@@ -20,6 +21,7 @@ brew cask install visual-studio-code
 brew cask install whatsapp
 
 # brew-cask less often
+brew cask install aerial
 brew cask install anki
 brew cask install appcleaner
 brew cask install calibre
@@ -34,6 +36,7 @@ brew cask install handbrake
 brew cask install iina
 brew cask install imageoptim
 brew cask install keepassxc
+brew cask install libreoffice
 brew cask install mountain-duck
 brew cask install mpv
 brew cask install namechanger
