@@ -11,6 +11,7 @@ brew cask install dropbox
 brew cask install firefox
 brew cask install iterm2
 brew cask install keepingyouawake
+brew cask install rectangle
 brew cask install sourcetree
 brew cask install spotify
 brew cask install telegram
