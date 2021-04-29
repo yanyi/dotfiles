@@ -8,6 +8,9 @@
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
 
+	# Fetch and then rebase with origin/main
+	frm = !"git fetch --all --prune --jobs=10 && git rebase origin/main"
+
   	# Fixup changes
   	fixup = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
 
@@ -80,3 +83,6 @@
 
 [pager]
 	log = false
+
+[init]
+	defaultBranch = main
