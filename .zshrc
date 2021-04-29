@@ -36,6 +36,7 @@ alias showDesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 alias gd="git d"
 alias gl="git l"
 alias gfu="git fixup"
+alias gfr="git frm"
 
 # List tree structure, sorted by directories first
 # brew install tree
