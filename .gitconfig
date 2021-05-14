@@ -1,12 +1,12 @@
 [alias]
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
-	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+	l = log --pretty=oneline -n 15 --graph --abbrev-commit
 
 	# View the current working tree status using the short format
 	s = status -s
 
 	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat" 
 
 	# Fetch and then rebase with origin/main
 	frm = !"git fetch --all --prune --jobs=10 && git rebase origin/main"
@@ -27,6 +27,7 @@
 
 [core]
 	excludesfile = ~/.gitignore
+	pager = delta
 
 [difftool]
 	tool = diffmerge
@@ -81,8 +82,12 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 
-[pager]
-	log = false
-
 [init]
 	defaultBranch = main
+
+[delta]
+	plus-style = "syntax #005700"
+	minus-style = "syntax #420000"
+
+[interactive]
+	diffFilter = delta --color-only

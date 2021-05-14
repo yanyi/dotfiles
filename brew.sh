@@ -45,6 +45,7 @@ brew cask install virtualbox
 brew tap wagoodman/dive && brew install dive
 brew install git
 brew install git-crypt
+brew install git-delta
 brew install git-flow
 brew install htop
 brew install openssl
