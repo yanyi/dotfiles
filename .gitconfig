@@ -29,24 +29,6 @@
 	excludesfile = ~/.gitignore
 	pager = delta
 
-[difftool]
-	tool = diffmerge
-
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-
-[merge]
-	tool = diffmerge
-
-[mergetool "diffmerge"]
-	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
-	trustExitCode = true
-
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
