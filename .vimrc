@@ -35,3 +35,11 @@ set background=dark
 """"""""""""""""""""""""""""""""""""""""""""
 set noswapfile
 autocmd Filetype gitcommit setlocal spell textwidth=72
+
+" https://superuser.com/a/904718
+vnoremap \y y:call system("pbcopy", getreg("\""))<CR>
+nnoremap \p :call setreg("\"", system("pbpaste"))<CR>p
+
+noremap YY "+y<CR>
+noremap P "+gP<CR>
+noremap XX "+x<CR>
