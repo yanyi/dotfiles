@@ -52,6 +52,7 @@ brew install openssl
 brew install ranger
 brew install rbenv
 brew install rclone
+brew install ripgrep
 brew install tree
 brew install vim
 brew install watch
