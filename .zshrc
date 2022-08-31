@@ -6,7 +6,12 @@ export LC_ALL=en_US.UTF-8
 fpath=($HOME/completion $fpath)
 autoload -Uz compinit && compinit -I
 ZSH_THEME="oxide"
-plugins=(git ripgrep zsh-autosuggestions history-search-multi-word)
+plugins=(
+	git
+	ripgrep
+	zsh-autosuggestions
+	history-search-multi-word
+)
 source $ZSH/oh-my-zsh.sh
 
 #######################
