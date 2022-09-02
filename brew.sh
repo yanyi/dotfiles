@@ -42,7 +42,9 @@ brew cask install veracrypt
 brew cask install virtualbox
 
 # Install useful binaries
+brew install autojump
 brew tap wagoodman/dive && brew install dive
+brew install fzf
 brew install git
 brew install git-crypt
 brew install git-delta
