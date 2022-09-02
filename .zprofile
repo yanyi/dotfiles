@@ -5,7 +5,12 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 
 # Homebrew
-eval $(/opt/homebrew/bin/brew shellenv)
+# M1 Mac will install at `/opt/homebrew`.
+if [[ $(uname -m) == 'arm64' ]]; then
+	eval $(/opt/homebrew/bin/brew shellenv)
+else
+	eval $(/usr/local/homebrew/bin/brew shellenv)
+fi
 
 # Load NVM
 export NVM_DIR="$HOME/.nvm"
