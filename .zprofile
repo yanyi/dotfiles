@@ -20,3 +20,6 @@ export NVM_DIR="$HOME/.nvm"
 # Delta
 # https://github.com/dandavison/delta#mouse-scrolling
 export DELTA_PAGER="less -R"
+
+# fzf
+export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
