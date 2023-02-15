@@ -50,6 +50,7 @@ brew install git-crypt
 brew install git-delta
 brew install git-flow
 brew install htop
+brew install just
 brew install openssl
 brew install ranger
 brew install rbenv
