@@ -56,3 +56,5 @@ t()
 {
   cd $(mktemp -d /tmp/$1.XXXX)
 }
+
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
