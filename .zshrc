@@ -50,6 +50,9 @@ alias tree="tree --dirsfirst"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
+# Justfile in user directory
+alias .j="just --justfile ~/Justfile --working-directory ."
+
 # Generate a temporary directory in /tmp
 # From `jtm` on Lobsters https://lobste.rs/s/zpw6py/how_do_you_organize_your_home_directory#c_rre2uy
 t()
