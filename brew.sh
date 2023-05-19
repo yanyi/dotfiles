@@ -33,6 +33,7 @@ brew cask install iina
 brew cask install imageoptim
 brew cask install keepassxc
 brew cask install libreoffice
+brew cask install medis
 brew cask install namechanger
 brew cask install signal
 brew cask install slack
