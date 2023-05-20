@@ -5,12 +5,13 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 
 # Homebrew
+export PATH="/usr/local/sbin:$PATH"
 # M1 Mac will install at `/opt/homebrew`.
-if [[ $(uname -m) == 'arm64' ]]; then
-	eval $(/opt/homebrew/bin/brew shellenv)
-else
-	eval $(/usr/local/homebrew/bin/brew shellenv)
-fi
+#if [[ $(uname -m) == 'arm64' ]]; then
+#	eval $(/opt/homebrew/bin/brew shellenv)
+#else
+#	eval $(/usr/local/homebrew/bin/brew shellenv)
+#fi
 
 # Load NVM
 export NVM_DIR="$HOME/.nvm"
@@ -23,3 +24,6 @@ export DELTA_PAGER="less -R"
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
+
+# direnv
+eval "$(direnv hook zsh)"
