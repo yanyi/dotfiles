@@ -56,7 +56,7 @@ alias .j="just --justfile ~/Justfile --working-directory ."
 # Clean up Docker
 docker_cleanup()
 {
-  local exitedContainers=$(docker ps -aq -f status=exited)
+  local exitedContainers=$(docker ps -aq -f status=exited -f status=created -f status=dead)
   if [ -n "$exitedContainers" ]; then
     docker rm $exitedContainers
   else
