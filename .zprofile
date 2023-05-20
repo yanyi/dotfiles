@@ -27,3 +27,6 @@ export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# autojump
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
