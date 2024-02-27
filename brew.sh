@@ -11,6 +11,7 @@ brew install --cask dropbox
 brew install --cask firefox
 brew install --cask iterm2
 brew install --cask keepingyouawake
+brew install --cask maccy
 brew install --cask rectangle
 brew install --cask sourcetree
 brew install --cask spotify
