@@ -8,7 +8,6 @@ autoload -Uz compinit && compinit -I
 ZSH_THEME="oxide"
 plugins=(
 	git
-	ripgrep
 	zsh-autosuggestions
 	history-search-multi-word
 )
@@ -70,3 +69,4 @@ t()
 {
   cd $(mktemp -d /tmp/$1.XXXX)
 }
+
