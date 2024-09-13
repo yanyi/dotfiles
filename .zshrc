@@ -49,6 +49,9 @@ alias tree="tree --dirsfirst"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
+# Remove iCloud Drive downloads
+alias removeiCloud="find . -type f -exec brctl evict {} \;"
+
 # Justfile in user directory
 alias .j="just --justfile ~/Justfile --working-directory ."
 
