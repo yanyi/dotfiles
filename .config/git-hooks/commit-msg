@@ -19,9 +19,9 @@ if ! [[ "${lines[0]}" =~ $commit_regex ]]; then
     exit 1
 fi
 
-# Check body lines (skip empty line after title)
+# Check body lines (skip title and empty lines)
 for i in "${!lines[@]}"; do
-    if [[ $i -gt 1 ]] && ! [[ "${lines[i]}" =~ $body_regex ]]; then
+    if [[ $i -gt 0 && -n "${lines[i]}" ]] && ! [[ "${lines[i]}" =~ $body_regex ]]; then
         echo "Error: Body line $((i+1)) exceeds 72 characters"
         echo "Line: '${lines[i]}' (${#lines[i]} chars)"
         exit 1
