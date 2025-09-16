@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Global commit message validator
+# Validates commit title (max 50 chars) and body lines (max 72 chars)
+
+commit_regex='^.{1,50}$'
+body_regex='^.{0,72}$'
+
+# Read commit message
+message=$(cat "$1")
+
+# Split into lines
+IFS=$'\n' read -d '' -r -a lines <<< "$message"
+
+# Check title (first line)
+if ! [[ "${lines[0]}" =~ $commit_regex ]]; then
+    echo "Error: Commit title must be 1-50 characters"
+    echo "Title: '${lines[0]}' (${#lines[0]} chars)"
+    exit 1
+fi
+
+# Check body lines (skip empty line after title)
+for i in "${!lines[@]}"; do
+    if [[ $i -gt 1 ]] && ! [[ "${lines[i]}" =~ $body_regex ]]; then
+        echo "Error: Body line $((i+1)) exceeds 72 characters"
+        echo "Line: '${lines[i]}' (${#lines[i]} chars)"
+        exit 1
+    fi
+done
+
+echo "Commit message format validated ✓"
