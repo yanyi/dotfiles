@@ -6,11 +6,25 @@
 commit_regex='^.{1,50}$'
 body_regex='^.{0,72}$'
 
-# Read commit message
-message=$(cat "$1")
+# Read only the authored commit message.
+# Ignore Git comment lines and stop before the verbose diff section.
+lines=()
+while IFS= read -r line; do
+    if [[ "$line" == diff\ --git\ * ]]; then
+        break
+    fi
 
-# Split into lines
-IFS=$'\n' read -d '' -r -a lines <<< "$message"
+    if [[ "$line" == \#* ]]; then
+        continue
+    fi
+
+    lines+=("$line")
+done < "$1"
+
+# Skip merge commits — their default messages are auto-generated and long
+if [[ "${lines[0]}" == Merge* ]]; then
+    exit 0
+fi
 
 errors=0
 
