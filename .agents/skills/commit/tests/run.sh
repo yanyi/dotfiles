@@ -18,24 +18,26 @@ FILTER="${1:-}"
 # ---------- per-test fixtures ----------
 
 setup() {
-    TEST_TMP=$(mktemp -d -t claude-commit-test)
+    # Use an explicit XXXXXX template; GNU mktemp rejects the BSD-style
+    # template accepted by macOS.
+    TEST_TMP=$(mktemp -d "${TMPDIR:-/tmp}/claude-commit-test.XXXXXX") || return 1
     TEST_REPO="$TEST_TMP/repo"
     TEST_TMPDIR="$TEST_TMP/tmp"
-    mkdir -p "$TEST_REPO" "$TEST_TMPDIR"
-    cd "$TEST_REPO"
-    git init -q -b main
-    git config user.email "test@example.com"
-    git config user.name "Test User"
-    git config commit.gpgsign false
+    mkdir -p "$TEST_REPO" "$TEST_TMPDIR" || return 1
+    cd "$TEST_REPO" || return 1
+    git init -q -b main || return 1
+    git config user.email "test@example.com" || return 1
+    git config user.name "Test User" || return 1
+    git config commit.gpgsign false || return 1
     # Override any inherited core.hooksPath so .git/hooks/* in this repo
     # actually run during the test (tests install fixture hooks there).
-    git config core.hooksPath .git/hooks
+    git config core.hooksPath .git/hooks || return 1
     export TMPDIR="$TEST_TMPDIR"
 }
 
 teardown() {
     cd /
-    rm -rf "$TEST_TMP"
+    [[ -n "${TEST_TMP:-}" ]] && rm -rf "$TEST_TMP"
 }
 
 stage_change() {
@@ -178,7 +180,10 @@ for fn in $(declare -F | awk '/^declare -f test_/ {print $3}' | sort); do
 
     output=$(
         {
-            setup
+            if ! setup; then
+                teardown
+                exit 1
+            fi
             "$fn"
             rc=$?
             teardown
