@@ -72,10 +72,14 @@
       "git log": "allow",
       "git log *": "allow",
       "git branch --show-current": "allow",
+      "git add *": "allow",
+      "git show *": "allow",
+      "*/.agents/skills/commit/scripts/validate-and-commit.sh *": "allow",
       "opencode debug config": "allow",
       "opencode --version": "allow",
       "opencode models": "allow",
-      "git push*": "allow",
+      "git push": "allow",
+      "git push *": "allow",
       "git push --force*": "ask",
       "git push --force-with-lease*": "ask",
       "git reset*": "deny",
@@ -94,7 +98,10 @@
 
     // Subagents and skills can introduce additional behavior, so review them.
     "task": "ask",
-    "skill": "ask",
+    "skill": {
+      "*": "ask",
+      "commit": "allow"
+    },
     "doom_loop": "ask"
   }
 }
