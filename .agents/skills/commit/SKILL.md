@@ -10,7 +10,11 @@ description: "Use for all git commits. Review and stage the intended files, then
 
 ## Instructions
 
-Analyze the changes above and create an atomic commit. If no changes exist, inform the user and stop.
+Analyze the changes above and create atomic commits. An atomic commit must
+contain one logically coherent change: group all files required for that
+change, but split unrelated changes into separate commits. If the intended
+grouping is unclear, ask the user before staging. If no changes exist, inform
+the user and stop.
 
 ## Commit Format
 
@@ -113,6 +117,8 @@ should not surface as a hard error to the caller.
 1. **Check for changes**: If `git status` shows no modifications, inform the user and stop.
 
 2. **Stage specific files**: Never use `git add .` - explicitly stage files:
+   When multiple logical changes exist, stage and commit one group at a time,
+   then repeat this workflow for each remaining group.
 
    ```bash
    git add pkg/cache/cache.go pkg/cache/cache_test.go
