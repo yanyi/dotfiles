@@ -24,3 +24,29 @@ ehthumbs.db
 
 # Windows shortcuts
 *.lnk
+
+# Local and private configuration
+.env
+.env.*
+!.env.example
+*.local
+**/secrets.*
+**/fish_variables
+**/code-server/
+
+# Credentials and authentication state
+**/.credentials.json
+**/auth.json
+**/*credentials*
+**/*token*
+
+# Generated assistant and tool state
+**/history.jsonl
+**/*.sqlite
+**/*.sqlite-*
+**/backups/
+**/cache/
+**/file-history/
+**/sessions/
+**/shell-snapshots/
+**/node_modules/
