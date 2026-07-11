@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "shell": "{env:SHELL}",
 
   "permission": {
     // Require approval for unspecified tools, MCP tools, and future tools.
