@@ -1,7 +1,6 @@
 ---
 name: commit
-description: "MANDATORY for ALL git commits — NEVER run git commit directly, ALWAYS invoke this skill instead. When the user says 'commit' (even as a single word with no other context), this skill MUST be used. Creates atomic commits with proper formatting following team conventions. Triggers: commit, commit the changes, commit staged changes, make a commit, create a commit, git commit, save changes, commit my work, commit this, commit code, committing, yes commit, go ahead and commit, lgtm commit."
-allowed-tools: Bash(git add:*), Bash(git status:*), Bash(git diff:*), Bash($SKILL_BASE_DIR/scripts/*)
+description: "Use for all git commits. Review and stage the intended files, then use this skill's validation script instead of invoking git commit directly. Creates atomic commits with required formatting and an explanatory body. Triggers: commit, commit the changes, commit staged changes, make a commit, create a commit, git commit, save changes, commit my work, commit this, commit code, committing, yes commit, go ahead and commit, lgtm commit."
 ---
 
 ## Context
@@ -16,29 +15,46 @@ Analyze the changes above and create an atomic commit. If no changes exist, info
 ## Commit Format
 
 ```
-<module>: <imperative description>
+<scope>: <imperative description>
 
-<body explaining WHY this change was made>
-
-Co-authored-by: <Agent> <email>
+<body explaining the problem and rationale>
 ```
 
 ### Rules
 
 - **Scope**: Identify the affected area using the lowest meaningful directory or package level (e.g., `service`, `cache`, or `fish`)
+- **Outcome**: Describe the resulting behavior or purpose, not merely the files or mechanism involved
 - **Lowercase** after the colon
 - **Imperative mood**: add, fix, implement, refactor, remove (not added, fixes)
 - **No period** at end of subject line
 - **Subject line**: ≤50 characters
 - **Body lines**: wrap at 72 characters
 
-### Body (REQUIRED)
+Prefer a specific outcome over a vague description:
 
-**MUST always include a commit body.** Commits serve as an audit log — the body captures the reasoning behind a change so future readers understand WHY, not just what.
+```
+cache: evict expired entries
+```
 
-The body's job is to answer: **"Why was this change necessary?"** — the motivation, the problem, the context. NEVER list WHAT you changed — the diff already shows that. A body that restates the diff in prose is worthless.
+Avoid titles that only describe the implementation or touched files:
 
-Try your best to explain the motivation, context, or problem being solved. Even for seemingly simple changes, there is almost always a "why" worth capturing.
+```
+cache: update code
+```
+
+### Body
+
+**MUST always include a commit body unless one of the exceptions below
+applies.** Commits serve as an audit log — the body captures the reasoning
+behind a change so future readers understand WHY, not just what.
+
+The body's job is to answer: **"Why was this change necessary?"** Include
+the motivation, the problem, relevant context, and any important constraint
+or consequence.
+
+Do not turn the body into a file-by-file changelog. Mention what changed
+when it is necessary to make the reasoning understandable. For a simple
+change, one or two precise sentences are better than padding the body.
 
 **Exceptions** (the ONLY cases where a body may be omitted):
 
@@ -83,23 +99,14 @@ should not surface as a hard error to the caller.
 
 #### Body guidelines
 
-- **WHY, not what**: Explain the problem, motivation, or context — never restate the diff
+- Start with the problem, failure, or constraint that motivated the change.
+- Explain why the existing behavior was insufficient or risky.
+- Include the relevant rationale, tradeoff, or resulting guarantee.
+- **WHY, not a changelog**: Do not restate the diff file by file; mention the change only as needed to explain the reasoning.
 - Ask yourself: "If someone reads only this body (not the diff), do they understand the reason for this change?"
-- Reference Jira tickets for related work
+- Reference issue or incident identifiers when they provide useful context.
 - Use bullet points for multiple related reasons
 - Wrap lines at 72 characters
-
-### Co-authored-by trailer (REQUIRED)
-
-Append a `Co-authored-by:` trailer at the end of the message, separated
-from the body by a single blank line. The trailer attributes the AI agent
-that authored the commit.
-
-- **Claude Code** → `Co-authored-by: Claude <noreply@anthropic.com>`
-- **Codex** → `Co-authored-by: Codex <noreply@openai.com>`
-
-Use the line that matches the agent invoking this skill. If multiple
-agents collaborated, include one trailer line per agent.
 
 ## Workflow
 
@@ -129,12 +136,10 @@ agents collaborated, include one trailer line per agent.
 
    ```bash
    $SKILL_BASE_DIR/scripts/validate-and-commit.sh <<'EOF'
-   service: add retry for 400 not-ready errors
+   service: retry transient request failures
 
-   When exponential backoff is enabled, the operation may be called
-   before remote service has processed the request. Wraps this specific 400
-   error with errors.Retry to trigger exponential backoff.
-
-   Co-authored-by: Claude <noreply@anthropic.com>
+   Requests can arrive before the remote service has finished
+   processing the preceding operation. Retry transient failures so
+   callers do not receive a hard error for a timing issue.
    EOF
    ```
