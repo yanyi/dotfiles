@@ -2,7 +2,7 @@
 source ~/.config/fish/fish-base.fish
 source ~/.config/fish/fish-aliases.fish
 source ~/.config/fish/fish-git.fish
-source ~/.config/fish/fish-asdf.fish
+source ~/.config/fish/fish-mise.fish
 export PATH="$(go env GOBIN):$PATH"
 export PATH="/home/dev/.cache/rebar3/bin:$PATH"
 
