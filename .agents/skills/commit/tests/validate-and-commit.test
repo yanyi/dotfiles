@@ -1,0 +1,183 @@
+# Test cases for scripts/validate-and-commit.sh
+# Loaded by tests/run.sh; assumes its helpers and globals are in scope.
+
+# --- validation: title length ---
+
+test_rejects_long_title() {
+    stage_change
+    run_script 'this title is way way way way way way way way way too long for the limit'
+    assert_status_nonzero || return 1
+    assert_stderr_contains "1-50 characters" || return 1
+    assert_no_commits || return 1
+}
+
+# --- validation: body line length ---
+
+test_rejects_long_body_line() {
+    stage_change
+    run_script 'subject
+
+this body line is way way way way way way way way way way way way way too long for the limit'
+    assert_status_nonzero || return 1
+    assert_stderr_contains "exceeds 72" || return 1
+    assert_no_commits || return 1
+}
+
+# --- validation: surfaces all errors at once ---
+
+test_reports_multiple_errors() {
+    stage_change
+    run_script 'this title is way way way way way way way way way too long for the limit
+
+this body line is way way way way way way way way way way way way way too long for the limit'
+    assert_status_nonzero || return 1
+    assert_stderr_contains "1-50 characters" || return 1
+    assert_stderr_contains "exceeds 72" || return 1
+    assert_no_commits || return 1
+}
+
+# --- validation: # comment lines are ignored even if long ---
+
+test_ignores_comment_lines() {
+    stage_change
+    run_script 'subject
+
+# this is a # comment line that is way way way way way way way way too long for the limit
+short body line'
+    assert_status 0 || return 1
+}
+
+# --- validation: Merge-titled authored commits get no exemption ---
+# (real merges are refused before validation and routed to
+# `git merge --continue`, so a "Merge ..." title reaching this point is an
+# authored commit and must meet the format limits like any other)
+
+test_rejects_long_merge_titled_authored_commit() {
+    stage_change
+    run_script "Merge branch 'feature/some-very-long-feature-name-that-exceeds-fifty-chars'"
+    assert_status_nonzero || return 1
+    assert_stderr_contains "1-50 characters" || return 1
+    assert_no_commits || return 1
+}
+
+# --- guard: merges are concluded via git merge --continue, not here ---
+
+test_refuses_merge_in_progress() {
+    setup_resolved_merge custom
+    run_script "Merge branch 'side'"
+    assert_status_nonzero || return 1
+    assert_stderr_contains "merge is in progress" || return 1
+    assert_stderr_contains "git merge --continue" || return 1
+    assert_merge_in_progress || return 1
+}
+
+# The deadlock case: conflict resolved to HEAD's own content, so
+# `git diff --staged --quiet` sees nothing staged while MERGE_HEAD exists.
+# The script must give the merge pointer, not "no staged changes".
+
+test_refuses_merge_whose_resolution_matches_head() {
+    setup_resolved_merge ours
+    run_script "Merge branch 'side'"
+    assert_status_nonzero || return 1
+    assert_stderr_contains "git merge --continue" || return 1
+    assert_merge_in_progress || return 1
+}
+
+# --- guard: nothing staged ---
+
+test_errors_when_nothing_staged() {
+    run_script 'subject
+
+body'
+    assert_status_nonzero || return 1
+    assert_stderr_contains "no staged changes" || return 1
+    assert_no_commits || return 1
+}
+
+# --- happy path: commits with the exact authored message ---
+
+test_commits_with_exact_message() {
+    stage_change
+    local msg='module: subject line
+
+body line one
+body line two'
+    run_script "$msg"
+    assert_status 0 || return 1
+    assert_commit_message "$msg" || return 1
+}
+
+# --- guard: validation failure must not consume the staged set ---
+
+test_validation_failure_preserves_staging() {
+    stage_change "kept.txt"
+    run_script 'this title is way way way way way way way way way too long for the limit'
+    assert_status_nonzero || return 1
+    assert_no_commits || return 1
+    assert_path_staged "kept.txt" || return 1
+}
+
+# --- temp-file hygiene: success path ---
+
+test_cleans_up_temp_files_on_success() {
+    stage_change
+    run_script 'subject
+
+body'
+    assert_status 0 || return 1
+    assert_tmpdir_clean || return 1
+}
+
+# --- temp-file hygiene: failure path ---
+
+test_cleans_up_temp_files_on_failure() {
+    stage_change
+    run_script 'this title is way way way way way way way way way too long for the limit'
+    assert_status_nonzero || return 1
+    assert_tmpdir_clean || return 1
+}
+
+# --- exit code propagation when git commit itself fails ---
+
+test_propagates_git_commit_failure() {
+    stage_change
+    cat > "$TEST_REPO/.git/hooks/pre-commit" <<'HOOK'
+#!/bin/bash
+echo "pre-commit rejected" >&2
+exit 1
+HOOK
+    chmod +x "$TEST_REPO/.git/hooks/pre-commit"
+
+    run_script 'subject
+
+body'
+    assert_status_nonzero || return 1
+    assert_no_commits || return 1
+}
+
+# --- input mode: stdin (canonical path used by the skill) ---
+
+test_accepts_stdin_input() {
+    stage_change
+    run_script 'subject
+
+body'
+    assert_status 0 || return 1
+}
+
+# --- input mode: file argument ---
+
+test_accepts_file_argument() {
+    stage_change
+    local msg_file="$TEST_TMP/msg.txt"
+    cat > "$msg_file" <<'EOF'
+subject
+
+body
+EOF
+    run_script_no_stdin "$msg_file"
+    assert_status 0 || return 1
+    assert_commit_message 'subject
+
+body' || return 1
+}
