@@ -17,6 +17,12 @@ These are default preferences. Follow higher-priority system and user instructio
 - Secure by default: use least privilege and treat external data as untrusted.
 - Measure before optimizing.
 
+## Documentation
+
+- Write README files, documentation, user-facing comments, and other explanatory prose from the current end-state perspective. Describe what exists, how it works, and what the reader should do.
+- Avoid incremental or historical wording such as "no longer", "previously", "changed from", or references that require readers to infer past repository state. Mention history only when history is the subject of the document or is necessary to understand current behavior.
+- Code comments are the exception: include history or context when it explains why a non-obvious design, constraint, workaround, or invariant exists. Do not use comments to narrate routine changes.
+
 ## Working Practices
 
 - Inspect repository status, existing code, tests, and project instructions before making changes.
