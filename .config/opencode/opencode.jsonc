@@ -74,7 +74,7 @@
       "git branch --show-current": "allow",
       "git add *": "allow",
       "git show *": "allow",
-      "*/.agents/skills/commit/scripts/validate-and-commit.sh *": "allow",
+      "*/skills/commit/scripts/validate-and-commit.sh *": "allow",
       "opencode debug config": "allow",
       "opencode --version": "allow",
       "opencode models": "allow",
