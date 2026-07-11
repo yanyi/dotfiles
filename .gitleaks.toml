@@ -1,0 +1,61 @@
+# Gitleaks config for the skills backup repo.
+# Schema: gitleaks 8.x (verified against 8.30.x).
+# Extends the built-in default ruleset and adds repo-specific allowlists.
+
+title = "dotfiles gitleaks config"
+
+[extend]
+# Inherit all of gitleaks' built-in secret detection rules.
+useDefault = true
+
+# Detect known API-key assignments in Fish configuration.
+[[rules]]
+id = "fish-known-api-key"
+description = "Detect known Fish API-key variables"
+regex = '''(?i)(MOONSHOT_API_KEY|ZAI_API_KEY)(\s+|[=:]\s*)["']?([A-Za-z0-9._+/=-]{20,})["']?'''
+secretGroup = 3
+keywords = [
+  "MOONSHOT_API_KEY",
+  "ZAI_API_KEY",
+]
+
+# Detect Fish's encoded universal-variable format.
+[[rules]]
+id = "fish-encoded-api-key"
+description = "Detect encoded Fish universal API-key variables"
+regex = '''(?i)(SETUVAR\s+(MOONSHOT_API_KEY|ZAI_API_KEY):)((\\x[0-9a-f]{2}|[A-Za-z0-9._+/=-]){20,})'''
+secretGroup = 3
+keywords = [
+  "SETUVAR",
+  "MOONSHOT_API_KEY",
+  "ZAI_API_KEY",
+]
+
+# Global allowlists apply across every rule.
+[[allowlists]]
+description = "Sample and schema config files carry placeholder values, not real secrets"
+condition = "OR"
+paths = [
+  '''config\.sample\.json$''',
+  '''config\.schema\.json$''',
+  '''.*\.sample\..*''',
+]
+
+[[allowlists]]
+description = "Documented curl examples use explicit placeholder credentials, not real ones"
+condition = "OR"
+regexes = [
+  '''email@example\.com:API_TOKEN''',
+]
+stopwords = [
+  "API_TOKEN",
+]
+
+[[allowlists]]
+description = "Documentation and lockfiles do not hold live credentials"
+condition = "OR"
+paths = [
+  '''(^|/)package-lock\.json$''',
+  '''(^|/)pnpm-lock\.yaml$''',
+  '''(^|/)yarn\.lock$''',
+]
