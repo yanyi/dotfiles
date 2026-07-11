@@ -23,6 +23,9 @@ These are default preferences. Follow project-specific instructions when they ar
 - Make changes small, focused, and reviewable.
 - Add a regression test for every bug fix.
 - Run the narrowest relevant checks first, then the broader test suite when practical.
+- Do not rely on memory for repository-specific behavior, tool syntax, APIs, or version-sensitive facts. Verify against repository sources first.
+- For third-party tools, APIs, and dependencies, consult the latest authoritative, version-matched documentation or source for the version in use. Do not assume that unversioned or latest-version documentation applies.
+- If authoritative, version-matched information is unavailable, state the uncertainty rather than guessing.
 - Do not change unrelated code or revert changes made by someone else.
 - Prefer existing project tools and conventions over introducing new dependencies or patterns.
 - Document decisions, invariants, and non-obvious tradeoffs close to the code.
