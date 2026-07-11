@@ -1,0 +1,10 @@
+# Modern tool aliases
+alias ll="eza -la"
+alias la="eza -la"
+alias ls="eza"
+alias cat="batcat"
+alias bat="batcat"
+alias find="fd"
+alias grep="rg"
+alias vim="nvim"
+alias vi="nvim"
