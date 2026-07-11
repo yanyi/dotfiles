@@ -1,0 +1,99 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "permission": {
+    // Require approval for unspecified tools, MCP tools, and future tools.
+    "*": "ask",
+
+    // Allow repository inspection while keeping sensitive files protected.
+    "read": {
+      "*": "allow",
+      "*.env": "deny",
+      "*.env.*": "deny",
+      "*.env.example": "allow",
+      "*.env.sample": "allow",
+      "*.env.template": "allow",
+      "*.pem": "deny",
+      "*.key": "deny",
+      "*.p12": "deny",
+      "*.pfx": "deny",
+      "*.jks": "deny",
+      "*.keystore": "deny",
+      "*.secret": "deny",
+      "*.secrets": "deny",
+      "secrets/**": "deny",
+      "**/secrets/**": "deny",
+      "*.tfvars": "deny",
+      "*.tfstate": "deny",
+      "*.tfstate.*": "deny",
+      "*.tfvars.example": "allow",
+      "credentials.json": "deny",
+      "credentials.yml": "deny",
+      "credentials.yaml": "deny",
+      "service-account*.json": "deny",
+      ".npmrc": "deny",
+      ".pypirc": "deny",
+      ".netrc": "deny",
+      ".git-credentials": "deny",
+      ".htpasswd": "deny",
+      "~/.aws/credentials": "deny",
+      "~/.docker/config.json": "deny",
+      "~/.config/gh/hosts.yml": "deny",
+      "~/.ssh/id_rsa": "deny",
+      "~/.ssh/id_ed25519": "deny",
+      "~/.ssh/id_ecdsa": "deny",
+      "~/.ssh/id_dsa": "deny"
+    },
+    "list": "allow",
+    "glob": "allow",
+    // Content searches can expose protected file contents.
+    "grep": "ask",
+    "lsp": "allow",
+
+    // These tools do not modify the project.
+    "question": "allow",
+    "todowrite": "allow",
+
+    // Documentation lookup is enabled; web search remains approval-gated.
+    "webfetch": "allow",
+    "websearch": "ask",
+
+    // Allow file modifications; external-directory access remains separately gated.
+    "edit": "allow",
+
+    // Shell commands require approval except for read-only Git inspection.
+    "bash": {
+      "*": "ask",
+      "git status": "allow",
+      "git status *": "allow",
+      "git diff": "allow",
+      "git diff *": "allow",
+      "git log": "allow",
+      "git log *": "allow",
+      "git branch --show-current": "allow",
+      "opencode debug config": "allow",
+      "opencode --version": "allow",
+      "opencode models": "allow",
+      "git push*": "allow",
+      "git push --force*": "ask",
+      "git push --force-with-lease*": "ask",
+      "git reset*": "deny",
+      "git checkout*": "deny",
+      "git restore*": "deny",
+      "git clean*": "deny",
+      "rm -rf*": "deny"
+    },
+
+    // Allow trusted global directories; prompt for all other external paths.
+    "external_directory": {
+      "*": "ask",
+      "~/.config/opencode/**": "allow",
+      "~/.agents/**": "allow"
+    },
+
+    // Subagents and skills can introduce additional behavior, so review them.
+    "task": "ask",
+    "skill": "ask",
+    "doom_loop": "ask"
+  }
+}
