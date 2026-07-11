@@ -1,4 +1,4 @@
-# Git aliases (oh-my-zsh style)
+# Git aliases
 alias gst="git status"
 alias ga="git add"
 alias gc="git commit"
