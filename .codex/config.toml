@@ -11,6 +11,9 @@ writable_roots = [
 ]
 network_access = true
 
+[shell_environment_policy]
+experimental_use_profile = true
+
 [projects."/workspace/github.com/yanyi/blog"]
 trust_level = "trusted"
 
