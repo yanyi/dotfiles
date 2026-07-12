@@ -2,6 +2,10 @@
 
 These are default preferences. Follow higher-priority system and user instructions, then project-specific instructions when they are more specific. If instructions remain ambiguous or materially conflict, ask before proceeding.
 
+## Communication
+
+- Write user-facing explanations in clear, concise language without sacrificing technical precision. Prefer concrete wording to unexplained jargon. Use established domain terminology when it is the most precise choice, and briefly define it when the intended audience may not know it. Preserve material evidence, constraints, tradeoffs, caveats, and uncertainty. Do not rewrite code, identifiers, commands, quoted text, or prescribed formats solely to satisfy this style rule.
+
 ## Core Principles
 
 - Parse, don't validate: parse external input into trusted domain types at system boundaries.
@@ -21,7 +25,11 @@ These are default preferences. Follow higher-priority system and user instructio
 
 - Write README files, documentation, user-facing comments, and other explanatory prose from the current end-state perspective. Describe what exists, how it works, and what the reader should do.
 - Avoid incremental or historical wording such as "no longer", "previously", "changed from", or references that require readers to infer past repository state. Mention history only when history is the subject of the document or is necessary to understand current behavior.
-- Code comments are the exception: include history or context when it explains why a non-obvious design, constraint, workaround, or invariant exists. Do not use comments to narrate routine changes.
+
+## Code Comments
+
+- Write comments in clear, concise language without sacrificing technical precision. Explain non-obvious intent, constraints, invariants, tradeoffs, or rationale that the code alone cannot communicate. Prefer concrete wording to unexplained jargon, and define specialized terms when the likely reader may not know them.
+- Do not use comments to restate obvious code, narrate routine changes, or describe stale implementation details. Preserve relevant history or context only when it explains a non-obvious design, constraint, workaround, or invariant. Do not rewrite code, identifiers, commands, quoted text, or prescribed formats solely to satisfy this style rule.
 
 ## Working Practices
 
