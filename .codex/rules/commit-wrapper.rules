@@ -1,13 +1,17 @@
 # The wrapper validates repository state before creating a local Git commit.
-# Keep this allowlist narrow: it applies only to this absolute executable path.
+# Keep this allowlist narrow: it applies only to the commit wrapper.
 prefix_rule(
   pattern = [
-    "/workspace/github.com/yanyi/dotfiles/.agents/skills/commit/scripts/validate-and-commit.sh",
+    [
+      ".agents/skills/commit/scripts/validate-and-commit.sh",
+      "/home/dev/.agents/skills/commit/scripts/validate-and-commit.sh",
+    ],
   ],
   decision = "allow",
   justification = "Allow the reviewed local commit validation wrapper to create commits.",
   match = [
-    "/workspace/github.com/yanyi/dotfiles/.agents/skills/commit/scripts/validate-and-commit.sh",
+    ".agents/skills/commit/scripts/validate-and-commit.sh",
+    "/home/dev/.agents/skills/commit/scripts/validate-and-commit.sh",
   ],
   not_match = [
     "/workspace/github.com/yanyi/dotfiles/.agents/skills/commit/scripts/other-script.sh",
