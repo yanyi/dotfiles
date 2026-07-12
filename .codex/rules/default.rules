@@ -1,0 +1,13 @@
+# Allow normal Git workflows without repeated approval prompts.
+prefix_rule(pattern=["git"], decision="allow")
+
+# Keep destructive history-rewriting pushes approval-gated.
+prefix_rule(pattern=["git", "push", "--force"], decision="prompt")
+prefix_rule(pattern=["git", "push", "--force-with-lease"], decision="prompt")
+prefix_rule(pattern=["git", "push", "-f"], decision="prompt")
+
+prefix_rule(pattern=["sed"], decision="allow")
+prefix_rule(pattern=["pwd"], decision="allow")
+prefix_rule(pattern=["hugo"], decision="allow")
+prefix_rule(pattern=["make"], decision="allow")
+prefix_rule(pattern=["apply_patch"], decision="allow")

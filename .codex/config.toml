@@ -1,0 +1,21 @@
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
+model = "gpt-5.6-terra"
+model_reasoning_effort = "medium"
+
+[sandbox_workspace_write]
+# Add only directories Codex must modify outside its launch directory.
+writable_roots = [
+  "/workspace/github.com",
+  "/home/dev/.codex/rules",
+]
+network_access = true
+
+[projects."/workspace/github.com/yanyi/blog"]
+trust_level = "trusted"
+
+[projects."/workspace/github.com/yanyi/dotfiles"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.6-sol" = 3
